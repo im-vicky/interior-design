@@ -1,0 +1,78 @@
+import React from "react";
+import { useState } from "react";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Projects", href: "/projects" },
+    { name: "Services", href: "/services" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  return (
+    <nav className="bg-white shadow-md fixed top-0 w-full z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <div className="text-2xl font-bold text-gray-800">InteriorPro</div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8 items-center">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-gray-700 hover:text-black transition duration-300"
+            >
+              {link.name}
+            </a>
+          ))}
+          <a
+            href="/contact"
+            className="ml-4 px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800 transition"
+          >
+            Get Quote
+          </a>
+        </div>
+
+        {/* Mobile Hamburger */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle Menu"
+          >
+            {menuOpen ? (
+              <HiOutlineX className="w-6 h-6" />
+            ) : (
+              <HiOutlineMenu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-white px-6 pb-4 pt-2 space-y-2 shadow-md">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="block text-gray-700 hover:text-black transition"
+            >
+              {link.name}
+            </a>
+          ))}
+          <a
+            href="/contact"
+            className="block mt-2 text-center px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800 transition"
+          >
+            Get Quote
+          </a>
+        </div>
+      )}
+    </nav>
+  );
+}
