@@ -7,10 +7,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
   ];
 
   return (
@@ -31,7 +29,9 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="/contact"
+            href="https://wa.me/1234567890?text=Hi%20there%2C%20I%20came%20across%20your%20site%20and%20would%20like%20to%20connect!"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-4 px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800 transition"
           >
             Get Quote
@@ -66,8 +66,10 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="/contact"
-            className="block mt-2 text-center px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800 transition"
+            href="https://wa.me/1234567890?text=Hi%20there%2C%20I%20came%20across%20your%20site%20and%20would%20like%20to%20connect!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-4 px-4 py-2 rounded-md bg-black text-white hover:bg-gray-800 transition"
           >
             Get Quote
           </a>
